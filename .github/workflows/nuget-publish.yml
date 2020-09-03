@@ -22,7 +22,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Pack
       working-directory: gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient
-      run: dotnet pack --configuration Release --no-restore src/TimeSeriesInsightsClient.csproj
+      run: dotnet pack --configuration Release --no-restore src/DataPlaneClient.csproj
     - name: publish on version change
       id: publish_nuget
       uses: rohith/publish-nuget@v2
