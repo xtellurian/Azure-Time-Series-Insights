@@ -1,0 +1,32 @@
+name: Nuget Publish
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      working-directory: gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient
+      run: dotnet restore
+    - name: Build
+      working-directory: gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient
+      run: dotnet build --configuration Release --no-restore
+    - name: Pack
+      working-directory: gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient
+      run: dotnet pack --configuration Release --no-restore src/TimeSeriesInsightsClient.csproj
+    - name: publish on version change
+      id: publish_nuget
+      uses: rohith/publish-nuget@v2
+      with:
+        # Filepath of the project to be packaged, relative to root of repository
+        PROJECT_FILE_PATH: gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/DataPlaneClient.csproj
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
