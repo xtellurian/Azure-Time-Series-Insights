@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>AmphoraData.TSI.CSharp</PackageId>
+    <Version>1.2.0</Version>
+    <Authors>Rian Finnegan</Authors>
+    <Company>Amphora Data</Company>
   </PropertyGroup>
 
   <ItemGroup>
