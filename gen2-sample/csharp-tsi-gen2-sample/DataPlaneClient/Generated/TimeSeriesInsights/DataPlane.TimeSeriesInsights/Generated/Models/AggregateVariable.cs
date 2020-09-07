@@ -12,6 +12,7 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using NJsonSchema.Annotations;
     using System.Linq;
 
     /// <summary>
@@ -19,6 +20,7 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
     /// Variables does not support interpolation.
     /// </summary>
     [Newtonsoft.Json.JsonObject("aggregate")]
+    [JsonSchemaFlattenAttribute]
     public partial class AggregateVariable : Variable
     {
         /// <summary>

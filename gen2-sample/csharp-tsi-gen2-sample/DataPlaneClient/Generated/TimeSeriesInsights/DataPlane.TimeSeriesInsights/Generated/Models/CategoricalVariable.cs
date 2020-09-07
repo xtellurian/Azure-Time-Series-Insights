@@ -12,6 +12,7 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using NJsonSchema.Annotations;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
@@ -22,6 +23,7 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
     /// values.
     /// </summary>
     [Newtonsoft.Json.JsonObject("categorical")]
+    [JsonSchemaFlattenAttribute]
     public partial class CategoricalVariable : Variable
     {
         /// <summary>

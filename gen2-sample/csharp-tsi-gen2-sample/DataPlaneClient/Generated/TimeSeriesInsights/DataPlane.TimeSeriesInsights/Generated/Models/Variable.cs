@@ -12,6 +12,7 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
 {
     using Newtonsoft.Json;
     using System.Linq;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// Variables are named calculations over values from the events. Time
@@ -20,6 +21,9 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
     /// and can be provided inline via Query APIs to override the stored
     /// definition.
     /// </summary>
+    [KnownType(typeof(NumericVariable))]
+    [KnownType(typeof(AggregateVariable))]
+    [KnownType(typeof(CategoricalVariable))]
     public partial class Variable
     {
         /// <summary>

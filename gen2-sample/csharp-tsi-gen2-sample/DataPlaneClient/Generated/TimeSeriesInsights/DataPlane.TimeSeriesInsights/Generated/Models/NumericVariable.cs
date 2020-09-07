@@ -12,6 +12,7 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using NJsonSchema.Annotations;
     using System.Linq;
 
     /// <summary>
@@ -19,6 +20,7 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
     /// be reconstructed using interpolation.
     /// </summary>
     [Newtonsoft.Json.JsonObject("numeric")]
+    [JsonSchemaFlattenAttribute]
     public partial class NumericVariable : Variable
     {
         /// <summary>
