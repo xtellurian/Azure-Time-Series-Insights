@@ -10,6 +10,7 @@
 
 namespace Microsoft.Azure.TimeSeriesInsights.Models
 {
+    using AmphoraData.TSI;
     using Newtonsoft.Json;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -24,6 +25,7 @@ namespace Microsoft.Azure.TimeSeriesInsights.Models
     [KnownType(typeof(NumericVariable))]
     [KnownType(typeof(AggregateVariable))]
     [KnownType(typeof(CategoricalVariable))]
+    [JsonConverter(typeof(VariableJsonInheritanceConverter), "kind")]
     public partial class Variable
     {
         /// <summary>

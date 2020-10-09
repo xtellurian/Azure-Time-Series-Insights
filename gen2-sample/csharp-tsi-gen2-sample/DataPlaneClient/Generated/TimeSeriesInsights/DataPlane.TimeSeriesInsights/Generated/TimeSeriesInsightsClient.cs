@@ -243,8 +243,8 @@ namespace Microsoft.Azure.TimeSeriesInsights
                         new Iso8601TimeSpanConverter()
                     }
             };
-            SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<Variable>("kind"));
             DeserializationSettings.Converters.Add(new  PolymorphicDeserializeJsonConverter<Variable>("kind"));
+            SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<Variable>("kind"));
             CustomInitialize();
         }
     }
